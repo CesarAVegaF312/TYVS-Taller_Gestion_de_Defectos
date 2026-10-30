@@ -1,0 +1,87 @@
+# Formulario de reporte de defecto (GitHub issue form).
+# Cada campo existe porque sin el, alguien tiene que volver a preguntar.
+name: Defecto
+description: Reportar un comportamiento que no cumple la especificación.
+title: "[Defecto] "
+labels: ["defecto", "estado:nuevo"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Un buen reporte permite que **otra persona** reproduzca el defecto sin preguntarle nada.
+        "No funciona el registro" no sirve. "Con edad = -1, `/register` responde 500; se esperaba 400 con `INVALID_AGE`" sí.
+        La severidad y la prioridad se asignan con etiquetas al clasificar el defecto (ver el README, módulo 3).
+  - type: input
+    id: requisito
+    attributes:
+      label: Requisito o caso que incumple
+      description: Identificador de la especificación (RF-04, R3...). Sin trazabilidad no se puede validar el cierre.
+      placeholder: RF-04
+    validations:
+      required: true
+  - type: dropdown
+    id: modulo
+    attributes:
+      label: Módulo
+      description: Debe coincidir con la etiqueta modulo:... que se le ponga al clasificar.
+      options:
+        - registro
+        - comprobante
+        - importacion
+        - estadisticas
+        - otro
+    validations:
+      required: true
+  - type: textarea
+    id: pasos
+    attributes:
+      label: Pasos para reproducir
+      description: Mínimos y exactos. Incluya los datos de entrada.
+      placeholder: |
+        1. Crear Person("Ana", 100, ...)
+        2. Llamar registry.registerVoter(...)
+    validations:
+      required: true
+  - type: textarea
+    id: esperado
+    attributes:
+      label: Resultado esperado
+      description: Lo que dice la especificación, citándola.
+    validations:
+      required: true
+  - type: textarea
+    id: obtenido
+    attributes:
+      label: Resultado obtenido
+      description: Lo que hace el sistema. Copie la salida exacta, no la parafrasee.
+    validations:
+      required: true
+  - type: input
+    id: prueba
+    attributes:
+      label: Prueba que lo reproduce
+      description: Clase y método de la prueba automatizada que falla mientras el defecto exista.
+      placeholder: RegistryTest#personaDe18AniosEsApta
+    validations:
+      required: true
+  - type: textarea
+    id: evidencia
+    attributes:
+      label: Evidencia
+      description: Salida de Maven, captura, log. Pegue texto en lugar de imágenes cuando sea posible.
+      render: text
+  - type: input
+    id: ambiente
+    attributes:
+      label: Ambiente
+      description: Sistema operativo, versión de Java, commit.
+      placeholder: Ubuntu 24.04, Java 17.0.12, commit abc1234
+    validations:
+      required: true
+  - type: textarea
+    id: impacto
+    attributes:
+      label: Impacto
+      description: ¿A quién afecta y qué pierde? Es la base para decidir severidad y prioridad.
+    validations:
+      required: true

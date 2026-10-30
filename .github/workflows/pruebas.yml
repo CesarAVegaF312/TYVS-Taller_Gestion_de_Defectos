@@ -1,0 +1,35 @@
+name: pruebas
+
+# La suite en cada push y pull request. En el ejercicio, cada defecto
+# corregido llega con su prueba: este check es la evidencia de que la
+# correccion no rompio nada mas (regresion).
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    name: mvn verify
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+          cache: maven
+      - name: Pruebas y cobertura
+        run: mvn -B verify
+        working-directory: registraduria
+      - name: Publicar informe de cobertura
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: jacoco
+          path: registraduria/target/site/jacoco/
+          if-no-files-found: warn

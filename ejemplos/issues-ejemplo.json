@@ -1,0 +1,169 @@
+[
+  {
+    "number": 1,
+    "title": "El cobro de una estadía de 59 minutos se factura como dos horas",
+    "state": "CLOSED",
+    "labels": [
+      {
+        "name": "defecto"
+      },
+      {
+        "name": "severidad:alta"
+      },
+      {
+        "name": "prioridad:alta"
+      },
+      {
+        "name": "modulo:tarifas"
+      }
+    ],
+    "createdAt": "2026-03-02T14:00:00Z",
+    "closedAt": "2026-03-04T14:00:00Z",
+    "body": "### Pasos para reproducir\n\n1. ...\n\n### Requisito o caso que incumple\n\nRF-04\n"
+  },
+  {
+    "number": 2,
+    "title": "Placa con espacios ('ABC 123') no se reconoce como registrada",
+    "state": "CLOSED",
+    "labels": [
+      {
+        "name": "defecto"
+      },
+      {
+        "name": "severidad:media"
+      },
+      {
+        "name": "prioridad:media"
+      },
+      {
+        "name": "modulo:ingreso"
+      },
+      {
+        "name": "reabierto"
+      }
+    ],
+    "createdAt": "2026-03-02T15:00:00Z",
+    "closedAt": "2026-03-09T15:00:00Z",
+    "body": "### Pasos para reproducir\n\n1. ...\n\n### Requisito o caso que incumple\n\nRF-01\n"
+  },
+  {
+    "number": 3,
+    "title": "El recibo dice 'Parquedero' en el encabezado",
+    "state": "CLOSED",
+    "labels": [
+      {
+        "name": "defecto"
+      },
+      {
+        "name": "severidad:baja"
+      },
+      {
+        "name": "prioridad:alta"
+      },
+      {
+        "name": "modulo:recibos"
+      }
+    ],
+    "createdAt": "2026-03-03T10:00:00Z",
+    "closedAt": "2026-03-03T22:00:00Z",
+    "body": "### Pasos para reproducir\n\n1. ...\n\n### Requisito o caso que incumple\n\nRF-07\n"
+  },
+  {
+    "number": 4,
+    "title": "Con el parqueadero lleno, el sistema asigna el puesto 0",
+    "state": "OPEN",
+    "labels": [
+      {
+        "name": "defecto"
+      },
+      {
+        "name": "severidad:critica"
+      },
+      {
+        "name": "prioridad:alta"
+      },
+      {
+        "name": "modulo:ingreso"
+      }
+    ],
+    "createdAt": "2026-03-05T09:00:00Z",
+    "closedAt": null,
+    "body": "### Pasos para reproducir\n\n1. ...\n\n### Requisito o caso que incumple\n\nRF-02, RF-03\n"
+  },
+  {
+    "number": 5,
+    "title": "El reporte diario redondea los ingresos hacia abajo",
+    "state": "OPEN",
+    "labels": [
+      {
+        "name": "defecto"
+      },
+      {
+        "name": "severidad:media"
+      },
+      {
+        "name": "prioridad:baja"
+      },
+      {
+        "name": "modulo:reportes"
+      }
+    ],
+    "createdAt": "2026-03-06T11:00:00Z",
+    "closedAt": null,
+    "body": "### Pasos para reproducir\n\n1. ...\n\n### Requisito o caso que incumple\n\nRF-09\n"
+  },
+  {
+    "number": 6,
+    "title": "La salida de una moto se cobra con tarifa de carro",
+    "state": "OPEN",
+    "labels": [
+      {
+        "name": "defecto"
+      },
+      {
+        "name": "severidad:alta"
+      },
+      {
+        "name": "prioridad:alta"
+      },
+      {
+        "name": "modulo:tarifas"
+      },
+      {
+        "name": "reabierto"
+      }
+    ],
+    "createdAt": "2026-03-04T08:00:00Z",
+    "closedAt": null,
+    "body": "### Pasos para reproducir\n\n1. ...\n\n### Requisito o caso que incumple\n\nRF-05\n"
+  },
+  {
+    "number": 7,
+    "title": "El botón de salida no responde a veces",
+    "state": "OPEN",
+    "labels": [
+      {
+        "name": "defecto"
+      },
+      {
+        "name": "modulo:salida"
+      }
+    ],
+    "createdAt": "2026-03-08T16:00:00Z",
+    "closedAt": null,
+    "body": "### Pasos para reproducir\n\nNo siempre pasa.\n\n### Requisito o caso que incumple\n\n_No response_"
+  },
+  {
+    "number": 8,
+    "title": "Agregar exportación del reporte a CSV",
+    "state": "OPEN",
+    "labels": [
+      {
+        "name": "mejora"
+      }
+    ],
+    "createdAt": "2026-03-07T10:00:00Z",
+    "closedAt": null,
+    "body": "Sería útil."
+  }
+]

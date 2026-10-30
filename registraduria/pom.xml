@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>edu.unisabana.tyvs</groupId>
+  <artifactId>registraduria</artifactId>
+  <version>1.0-SNAPSHOT</version>
+
+  <name>registraduria</name>
+  <description>Taller de Gestion de Defectos - Testing y Validacion de Software</description>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.release>17</maven.compiler.release>
+    <junit.version>5.10.2</junit.version>
+    <jackson.version>2.21.4</jackson.version>
+  </properties>
+
+  <dependencies>
+    <!-- Solo para el generador del tablero (modulo 5): lee la exportacion de
+         GitHub Issues en JSON. La Registraduria no la usa. -->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>${jackson.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.2.5</version>
+        <configuration>
+          <useModulePath>false</useModulePath>
+        </configuration>
+      </plugin>
+
+      <!-- JaCoCo: el informe de cobertura es parte de la evidencia del informe
+           final (modulo 6). No hay umbral: la suite de partida es incompleta a
+           proposito, y completarla es el ejercicio. -->
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <version>0.8.12</version>
+        <executions>
+          <execution>
+            <id>prepare-agent</id>
+            <goals><goal>prepare-agent</goal></goals>
+          </execution>
+          <execution>
+            <id>report</id>
+            <phase>verify</phase>
+            <goals><goal>report</goal></goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <!-- Generador del tablero (modulo 5). Se ejecuta a mano:
+             mvn -q compile exec:java -Dexec.args="entrada.json salida.md"
+           (o con scripts/generar-tablero.sh desde la raiz). -->
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>3.3.0</version>
+        <configuration>
+          <mainClass>edu.unisabana.tyvs.tablero.GeneradorDeTablero</mainClass>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
