@@ -5,12 +5,18 @@ name: ambiente
 # ambiente, y a mano desde la pestana Actions.
 on:
   pull_request:
-    paths:
+    paths: &rutas-del-ambiente
       - '.devcontainer/**'
       - '.github/workflows/ambiente.yml'
       # Actualizar dependencias tambien cambia el ambiente: debe volver a
       # comprobarse que se construye y que la suite pasa adentro.
       - '**/pom.xml'
+  # Tambien al llegar a master: asi GitHub registra el workflow (uno sin
+  # disparador de push no aparece en Actions hasta su primera ejecucion) y
+  # master queda verificado aunque el cambio no haya pasado por un PR.
+  push:
+    branches: [master]
+    paths: *rutas-del-ambiente
   workflow_dispatch:
 
 permissions:
