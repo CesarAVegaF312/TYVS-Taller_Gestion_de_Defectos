@@ -11,6 +11,15 @@ on:
       # Actualizar dependencias tambien cambia el ambiente: debe volver a
       # comprobarse que se construye y que la suite pasa adentro.
       - '**/pom.xml'
+  # Tambien al llegar a master: asi GitHub registra el workflow (uno sin
+  # disparador de push no aparece en Actions hasta su primera ejecucion) y
+  # master queda verificado aunque el cambio no haya pasado por un PR.
+  push:
+    branches: [master]
+    paths:
+      - '.devcontainer/**'
+      - '.github/workflows/ambiente.yml'
+      - '**/pom.xml'
   workflow_dispatch:
 
 permissions:
