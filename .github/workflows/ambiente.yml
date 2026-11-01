@@ -5,7 +5,7 @@ name: ambiente
 # ambiente, y a mano desde la pestana Actions.
 on:
   pull_request:
-    paths: &rutas-del-ambiente
+    paths:
       - '.devcontainer/**'
       - '.github/workflows/ambiente.yml'
       # Actualizar dependencias tambien cambia el ambiente: debe volver a
@@ -16,7 +16,10 @@ on:
   # master queda verificado aunque el cambio no haya pasado por un PR.
   push:
     branches: [master]
-    paths: *rutas-del-ambiente
+    paths:
+      - '.devcontainer/**'
+      - '.github/workflows/ambiente.yml'
+      - '**/pom.xml'
   workflow_dispatch:
 
 permissions:
